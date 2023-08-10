@@ -1,0 +1,22 @@
+{
+  "name": "peck-broccoli",
+  "version": "1.0.0",
+  "description": "Employee Tracker",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "CodingObliqua"
+  },
+  "author": "CodingObliqua",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.6.0"
+  }
+}
