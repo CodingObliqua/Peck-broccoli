@@ -39,6 +39,58 @@ async function main() {
             ]);
             await Department.addDepartment(departmentName.name);
             console.log('Department added successfully.');
+        } else if (action.choice === 'Add Employee') {
+            const employeeData = await inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'firstName',
+                    message: "Enter employee's first name:",
+                },
+                {
+                    type: 'input',
+                    name: 'lastName',
+                    message: "Enter employee's last name:",
+                },
+                {
+                    type: 'input',
+                    name: 'roleID',
+                    message: "Enter the employee's role ID:",
+                },
+                {
+                    type: 'input',
+                    name: 'managerId',
+                    message: "Enter the employee's manager ID (leave empty if N/A):", 
+                },
+            ]);
+            await Employee.addEmployee(employeeData.firstName, employeeData.lastName, employeeData.roleId, employeeData.managerId);
+            console.log('Employee added successfully');
+        } else if (action.choice === 'View All Employees') {
+            const employee = await Employee.viewAllEmployees();
+            console.log(employee);
+        } else  if (action.choice === 'Add Role') {
+            const roleData = await inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'title',
+                    message: "Enter the title of the role:",
+                },
+                {
+                    type: 'input',
+                    name: 'salary',
+                    message: "Enter the salary of the role:",
+                },
+                {
+                    type: 'input',
+                    name: 'department_id',
+                    message: "Enter the department ID for the role:",
+                },
+            ]);
+            
+            await Role.addRole(roleData);
+            console.log('Role added successfully.');
+        } else if (action.choice === 'View All Roles') {
+            const roles = await Role.viewAllRoles();
+            console.log(roles);
         }
 
         // View all departments
